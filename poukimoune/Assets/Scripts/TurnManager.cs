@@ -5,26 +5,25 @@ namespace DefaultNamespace
 {
     public class TurnManager : MonoBehaviour
     {
+        [SerializeField] private GameObject ennemie;
         public enum Turn
         {
             player,
             IA
         }
 
-        public Turn m_currentTurn = Turn.player;
+        public Turn currentTurn = Turn.player;
         
         public void EndTurn()
         {
-            
-            
-            switch (m_currentTurn )
+            switch (currentTurn)
             {
                 case Turn.player: 
-                    m_currentTurn = Turn.IA;
+                    currentTurn = Turn.IA;
                     SetIATurn();
                     break;
                 case Turn.IA:
-                    m_currentTurn = Turn.player; 
+                    currentTurn = Turn.player; 
                     SetPlayerTurn();
                     break;
             }
@@ -41,14 +40,10 @@ namespace DefaultNamespace
         public void SetIATurn()
         {
             SetIADisplay();
-            DetermineIAAction();
+            //.DetermineIAAction();
             EndTurn();
         }
 
-        public void DetermineIAAction()
-        {
-            
-        }
         
         public void SetIADisplay()
         {

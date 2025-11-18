@@ -1,49 +1,38 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace DefaultNamespace
 {
     public class Poukimoune : MonoBehaviour
     {
-         [SerializeField]  private EntityData m_data;
+         [SerializeField] private EntityData data;
          private EntityDataWrapper runtimeData;
+         [SerializeField] private Image lifeBar;
+         [SerializeField] private TMP_Text lifeText;
 
-         [SerializeField]
-         private SpriteRenderer m_tadMorvRenderer;
-         
          private void Awake()
          {
-             runtimeData = m_data.GetRuntimeData();
-            var coroutine = StartCoroutine(SwapRandomColorEveryXSeconds());
+             runtimeData = data.GetRuntimeData();
          }
 
          private void Update()
          {
              if (Input.GetKeyDown(KeyCode.A))
              {
-                 GameManager.instance.currentState = GameManager.GameState.Menu;
+                 runtimeData.LoseLife(10, lifeBar, lifeText);
              }
-             
          }
-
-         public WaitForSeconds WaitForSeconds1 = new WaitForSeconds(1);
          
-         public IEnumerator SwapRandomColorEveryXSeconds()
+         public void DetermineIAAction()
          {
-             yield return new WaitForSeconds(0.05f);
-             
-             m_tadMorvRenderer.color = 
-                 new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f), 1f);
-             
-             yield return WaitForSeconds1;
-             
-             StartCoroutine(SwapRandomColorEveryXSeconds());
+            
          }
-
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
-    
     public class GameManager : MonoBehaviour
     {
         // TODO AJOUTER STATE MACHINE GAME/MENU
@@ -19,35 +18,23 @@ namespace DefaultNamespace
         //  -> AFFICHER UNE LISTE DE SORTS JOUEUR
         //  -> STATE MACHINE TOUR EN COURS -> PLAYER PUIS IA
 
+        public static GameManager instance;
+        private GameState currentState = GameState.Menu;
         public enum GameState
         {
             Menu,
             Game
         }
-
-        private GameState m_currentState = GameState.Menu;
-
-        public GameState currentState
+        
+        public GameState CurrentState
         {
-            get => m_currentState;
+            get => currentState;
             set
             {
-                m_currentState = value;
+                currentState = value;
                 SceneManager.LoadScene(GetSceneByState());
             }
         }
-        
-        public string GetSceneByState()
-        {
-            return m_currentState switch
-            {
-                GameState.Menu => "Menu",
-                GameState.Game => "Game",
-                _ => ""
-            };
-        }
-        
-        public static GameManager instance;
         
         private void Awake()
         {
@@ -62,5 +49,14 @@ namespace DefaultNamespace
             currentState = GameState.Game;
         }
         
+        public string GetSceneByState()
+        {
+            return currentState switch
+            {
+                GameState.Menu => "Menu",
+                GameState.Game => "Game",
+                _ => ""
+            };
+        }
     }
 }

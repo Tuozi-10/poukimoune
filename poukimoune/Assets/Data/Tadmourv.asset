@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969574060b121d346aa74a90cd35cc87, type: 3}
   m_Name: Tadmourv
   m_EditorClassIdentifier: 
-  hp: 187
-  type: 5
-  attack: 30
+  <hpInitial>k__BackingField: 50
+  <typeInitial>k__BackingField: 5
