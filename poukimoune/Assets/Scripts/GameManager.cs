@@ -13,7 +13,7 @@ namespace DefaultNamespace
         // TODO AJOUTER STATE MACHINE GAME/MENU
         // QUAND ON CHANGE LETAT -> getter setter -> changer la scene
         // IN MENU
-        //  -> BOUTON PLAY / QUITTER
+        //  -> BOUTON PLAY / QUITTER * 
         // IN GAME 
         //  -> AFFICHER UN ENNEMI
         //  -> AFFICHER UNE BARRE DE VIE DESSUS + PV EN TXT + LVL 
@@ -63,6 +63,16 @@ namespace DefaultNamespace
             DontDestroyOnLoad(this);
             currentState = GameState.Game;
         }
-        
+
+        public void ExitGame() 
+        {
+            Application.Quit();
+        }
+
+        public void StartGame()
+        {
+            SceneManager.LoadScene("Game");
+        }
     }
+    
 }
