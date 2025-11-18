@@ -2,12 +2,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace DefaultNamespace
 {
     
     public class GameManager : MonoBehaviour
     {
+        private Image image;
         // TODO AJOUTER STATE MACHINE GAME/MENU
         // QUAND ON CHANGE LETAT -> getter setter -> changer la scene
         // IN MENU
@@ -34,6 +36,7 @@ namespace DefaultNamespace
             {
                 m_currentState = value;
                 SceneManager.LoadScene(GetSceneByState());
+                image.fillAmount
             }
         }
         

@@ -13,18 +13,13 @@ public class EntityData : ScriptableObject
         poison
     }
     
-    [SerializeField] private int hp;
-    [SerializeField] private pokemonType type;
-    [SerializeField] private int attack;
+    [field:SerializeField] public int hp { get; private set; }
+    [field:SerializeField] public pokemonType type{ get; private set; }
+    [field:SerializeField] public int attack { get; private set; }
 
     public EntityDataWrapper GetRuntimeData()
     {
-        return new EntityDataWrapper()
-        {
-            hp = hp,
-            type = type,
-            attack = attack
-        };
+        return new EntityDataWrapper(this);
     }
 }
 
@@ -32,6 +27,14 @@ public class EntityData : ScriptableObject
 public class EntityDataWrapper
 {
     public int hp;
+    public int hpToto;
     public EntityData.pokemonType type;
     public int attack;
+
+    public EntityDataWrapper(EntityData data)
+    {
+        hpToto = hp = data.hp;
+        type = data.type;
+        attack = data.attack;
+    }
 }
