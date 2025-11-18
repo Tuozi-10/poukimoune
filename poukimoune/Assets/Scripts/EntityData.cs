@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,9 +15,9 @@ public class EntityData : ScriptableObject
         poison
     }
     
-    [SerializeField] private int hp;
-    [SerializeField] private pokemonType type;
-    [SerializeField] private int attack;
+    [SerializeField] public int hp;
+    [SerializeField] public pokemonType type;
+    [SerializeField] public int attack;
 
     public EntityDataWrapper GetRuntimeData()
     {
