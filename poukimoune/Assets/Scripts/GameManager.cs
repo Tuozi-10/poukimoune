@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -61,7 +61,20 @@ namespace DefaultNamespace
 
             instance = this;
             DontDestroyOnLoad(this);
-            currentState = GameState.Game;
+            
+        }
+
+        public void ChangeScene()
+        {
+            if (GetSceneByState() == "Menu")
+            {
+                currentState = GameState.Game;
+            }
+            else
+            {
+                currentState = GameState.Menu;
+            }
+            
         }
         
     }
