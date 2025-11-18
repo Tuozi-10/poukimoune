@@ -36,7 +36,6 @@ namespace DefaultNamespace
             {
                 m_currentState = value;
                 SceneManager.LoadScene(GetSceneByState());
-                image.fillAmount
             }
         }
         
