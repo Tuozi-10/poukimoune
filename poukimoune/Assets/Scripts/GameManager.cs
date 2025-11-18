@@ -59,8 +59,11 @@ namespace DefaultNamespace
 
             instance = this;
             DontDestroyOnLoad(this);
+        }
+
+        public void PlayButton()
+        {
             currentState = GameState.Game;
         }
-        
     }
 }
