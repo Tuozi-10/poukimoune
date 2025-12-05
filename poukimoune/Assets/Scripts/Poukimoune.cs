@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace DefaultNamespace
@@ -15,6 +17,9 @@ namespace DefaultNamespace
 
          [SerializeField]
          private SpriteRenderer m_tadMorvRenderer;
+
+         [SerializeField] private Image hpBar;
+         [SerializeField] private TextMeshProUGUI hpText;
          
          private void Awake()
          {
@@ -28,9 +33,17 @@ namespace DefaultNamespace
              {
                  GameManager.instance.currentState = GameManager.GameState.Menu;
              }
+             HPText();
+             HPBar();
              
          }
 
+         public void PlayAttack()
+         {
+             
+         }
+         
+         
          public WaitForSeconds WaitForSeconds1 = new WaitForSeconds(1);
          
          public IEnumerator SwapRandomColorEveryXSeconds()
@@ -45,5 +58,14 @@ namespace DefaultNamespace
              StartCoroutine(SwapRandomColorEveryXSeconds());
          }
 
+         public void HPBar()
+         {
+             hpBar.fillAmount = (float)runtimeData.hpToto / runtimeData.hp;
+         }
+
+         public void HPText()
+         {
+             hpText.text = runtimeData.hp.ToString() + "/" + runtimeData.hpToto.ToString();
+         }
     }
 }
