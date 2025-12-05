@@ -40,8 +40,14 @@ namespace DefaultNamespace
         {
             if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
                 return;
-            
-            otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[1].damages;
+            if (playerPokimon.runtimeData.hp - playerPokimon.runtimeData.spells[1].damages > playerPokimon.runtimeData.hpToto)
+            {
+                playerPokimon.runtimeData.hp = playerPokimon.runtimeData.hpToto;
+            }
+            else
+            {
+                playerPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[1].damages;
+            }
             m_turnManager.EndTurn();
         }
         

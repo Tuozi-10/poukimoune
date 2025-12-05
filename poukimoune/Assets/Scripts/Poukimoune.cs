@@ -42,7 +42,7 @@ namespace DefaultNamespace
 
          public void PlayAttack()
          {
-             
+             m_animator.Play("Attack");
          }
          
          
