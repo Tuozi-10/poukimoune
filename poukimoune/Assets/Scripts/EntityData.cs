@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EntityData", menuName = "Scriptable Objects/EntityData")]
@@ -17,6 +18,8 @@ public class EntityData : ScriptableObject
     [field:SerializeField] public pokemonType type{ get; private set; }
     [field:SerializeField] public int attack { get; private set; }
 
+    [field: SerializeField] public List<SpellData> spells { get; private set; }
+    
     public EntityDataWrapper GetRuntimeData()
     {
         return new EntityDataWrapper(this);
@@ -30,11 +33,13 @@ public class EntityDataWrapper
     public int hpToto;
     public EntityData.pokemonType type;
     public int attack;
+    public List<SpellData> spells;
 
     public EntityDataWrapper(EntityData data)
     {
         hpToto = hp = data.hp;
         type = data.type;
         attack = data.attack;
+        spells = data.spells;
     }
 }

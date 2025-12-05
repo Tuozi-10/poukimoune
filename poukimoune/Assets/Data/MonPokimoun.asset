@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 969574060b121d346aa74a90cd35cc87, type: 3}
-  m_Name: Tadmourv
+  m_Name: MonPokimoun
   m_EditorClassIdentifier: 
-  <hp>k__BackingField: 30
-  <type>k__BackingField: 5
-  <attack>k__BackingField: 2
+  <hp>k__BackingField: 50
+  <type>k__BackingField: 3
+  <attack>k__BackingField: 3
   <spells>k__BackingField:
-  - {fileID: 11400000, guid: 2865a1391a9361342984c181d1548950, type: 2}
   - {fileID: 11400000, guid: 0f4e60c7bce06b3479faf77dc4139fbf, type: 2}
+  - {fileID: 11400000, guid: 2865a1391a9361342984c181d1548950, type: 2}
   - {fileID: 11400000, guid: 4d711ed980197a748b5e52b97d1537e0, type: 2}

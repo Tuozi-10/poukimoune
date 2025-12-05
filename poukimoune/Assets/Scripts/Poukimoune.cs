@@ -11,7 +11,7 @@ namespace DefaultNamespace
     public class Poukimoune : MonoBehaviour
     {
          [SerializeField]  private EntityData m_data;
-         private EntityDataWrapper runtimeData;
+         public EntityDataWrapper runtimeData;
 
          [SerializeField]
          private SpriteRenderer m_tadMorvRenderer;

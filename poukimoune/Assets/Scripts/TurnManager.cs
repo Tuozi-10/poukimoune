@@ -15,8 +15,6 @@ namespace DefaultNamespace
         
         public void EndTurn()
         {
-            
-            
             switch (m_currentTurn )
             {
                 case Turn.player: 
@@ -33,7 +31,7 @@ namespace DefaultNamespace
         // PLAYER
         public void SetPlayerTurn()
         {
-            //
+            // 
         }
         
         // IA
