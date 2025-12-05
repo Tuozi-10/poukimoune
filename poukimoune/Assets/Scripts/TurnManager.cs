@@ -36,7 +36,6 @@ namespace DefaultNamespace
         }
         
         // IA
-        
         public void SetIATurn()
         {
             SetIADisplay();
