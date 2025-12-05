@@ -124,6 +124,11 @@ namespace DefaultNamespace
                 Debug.Log("perdu");
                 return true;
             }
+            else if (playerPokimon.runtimeData.hp <= 0)
+            {
+                Debug.Log("Gagné");
+                return true;
+            }
             return false;
         }
         

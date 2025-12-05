@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969574060b121d346aa74a90cd35cc87, type: 3}
   m_Name: MonPokimoun
   m_EditorClassIdentifier: 
-  <hp>k__BackingField: 50
+  <hp>k__BackingField: 15
   <type>k__BackingField: 3
   <attack>k__BackingField: 3
   <spells>k__BackingField:
