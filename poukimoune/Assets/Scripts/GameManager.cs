@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 namespace DefaultNamespace
 {
     
@@ -20,7 +21,11 @@ namespace DefaultNamespace
         //  -> CREER SCRIPTABLE DATA SPELLDATA ( dommages, elements, ...)
         //  -> AFFICHER UNE LISTE DE SORTS JOUEUR
         //  -> STATE MACHINE TOUR EN COURS -> PLAYER PUIS IA
-
+        
+        [SerializeField] private Poukimoune otherPokimon;
+        [SerializeField] private Poukimoune playerPokimon;
+        [SerializeField] private GameObject EndMenu;
+        
         public enum GameState
         {
             Menu,
@@ -53,16 +58,21 @@ namespace DefaultNamespace
         
         private void Awake()
         {
-            if (instance != null)
-            {
-                Destroy(this.gameObject);
-                return;
-            }
-
-            instance = this;
-            DontDestroyOnLoad(this);
-            currentState = GameState.Game;
+            EndMenu.SetActive(false);
+            
         }
-        
+
+        public void Update()
+        {
+            if (playerPokimon.runtimeData.hp <= 0 || otherPokimon.runtimeData.hp <= 0)
+            {
+                EndMenu.SetActive(true);
+            }
+        }
+
+        public void Retry()
+        {
+            SceneManager.LoadScene("Game");
+        }
     }
 }

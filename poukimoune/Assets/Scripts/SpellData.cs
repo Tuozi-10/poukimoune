@@ -1,10 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 [CreateAssetMenu(fileName = "SpellData", menuName = "Scriptable Objects/SpellData")]
 public class SpellData : ScriptableObject
 {
+    [SerializeField] TextMeshProUGUI TextLifeBar;
     [field:SerializeField]
-    public int damages { get; private set; }
+    public int damages { get; private set; } 
     
     public SpellDataWrapper GetRuntimeData()
     {
