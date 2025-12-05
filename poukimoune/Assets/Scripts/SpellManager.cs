@@ -31,7 +31,7 @@ namespace DefaultNamespace
             if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
                 return;
             
-            playerPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[0].damages;
+            otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[0].damages;
             
             m_turnManager.EndTurn();
         }

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5cbc26b28444bb966c02a327bb5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasUI: {fileID: 1948083415}
+  parentSpells: {fileID: 614402803}
   playerPokimon: {fileID: 176823446}
   otherPokimon: {fileID: 312455199}
   m_currentTurn: 0
@@ -256,6 +256,7 @@ MonoBehaviour:
   m_tadMorvRenderer: {fileID: 1273315414}
   hpBar: {fileID: 1850969993}
   hpText: {fileID: 621739285}
+  m_animator: {fileID: 0}
 --- !u!4 &176823447
 Transform:
   m_ObjectHideFlags: 0
@@ -398,6 +399,7 @@ MonoBehaviour:
   m_tadMorvRenderer: {fileID: 1043311393}
   hpBar: {fileID: 209606700}
   hpText: {fileID: 1796832825}
+  m_animator: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +850,7 @@ GameObject:
   - component: {fileID: 614402804}
   - component: {fileID: 614402805}
   m_Layer: 5
-  m_Name: spells
+  m_Name: Spells
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,7 +7,7 @@ namespace DefaultNamespace
 {
     public class TurnManager : MonoBehaviour
     {
-        [SerializeField] private Canvas canvasUI;
+        [SerializeField] private GameObject parentSpells;
         [SerializeField] private Poukimoune playerPokimon;
         [SerializeField] private Poukimoune otherPokimon;
         public enum Turn
@@ -16,6 +17,7 @@ namespace DefaultNamespace
         }
 
         public Turn m_currentTurn = Turn.player;
+        public WaitForSeconds WaitForSeconds5 = new WaitForSeconds(5);
         
         public void EndTurn()
         {
@@ -36,7 +38,7 @@ namespace DefaultNamespace
         public void SetPlayerTurnDisplay()
         {
             //
-            gameObject.SetActive(canvasUI);
+            
         }
         
         // IA
@@ -55,19 +57,30 @@ namespace DefaultNamespace
             {
                 case 1:
                     playerPokimon.runtimeData.hp -= otherPokimon.runtimeData.spells[0].damages;
+                    Debug.Log("IA joue "+otherPokimon.runtimeData.spells[0]);
                     break;
                 case 2:
                     playerPokimon.runtimeData.hp -= otherPokimon.runtimeData.spells[1].damages;
+                    Debug.Log("IA joue "+otherPokimon.runtimeData.spells[1]);
                     break;
                 case 3:
                     playerPokimon.runtimeData.hp -= otherPokimon.runtimeData.spells[2].damages;
+                    Debug.Log("IA joue "+otherPokimon.runtimeData.spells[2]);
                     break;
             }
         }
         
         public void SetIADisplay()
         {
-            gameObject.SetActive(canvasUI);
+            StartCoroutine(DiscableForOneSec());
+    
+        }
+
+        public IEnumerator DiscableForOneSec()
+        {
+            parentSpells.SetActive(false);
+            yield return new WaitForSeconds(1f);
+            parentSpells.SetActive(true);
         }
     }
 }

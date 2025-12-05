@@ -18,8 +18,10 @@ namespace DefaultNamespace
          [SerializeField]
          private SpriteRenderer m_tadMorvRenderer;
 
-         [SerializeField] private Image hpBar;
+         [SerializeField, Space] private Image hpBar;
          [SerializeField] private TextMeshProUGUI hpText;
+
+         [SerializeField, Space] private Animator m_animator;
          
          private void Awake()
          {
@@ -60,7 +62,7 @@ namespace DefaultNamespace
 
          public void HPBar()
          {
-             hpBar.fillAmount = (float)runtimeData.hpToto / runtimeData.hp;
+             hpBar.fillAmount = (float)runtimeData.hp / runtimeData.hpToto;
          }
 
          public void HPText()
