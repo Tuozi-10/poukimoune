@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Tadmourv
   m_EditorClassIdentifier: 
   <hp>k__BackingField: 30
-  <type>k__BackingField: 5
+  <type>k__BackingField: 1
   <attack>k__BackingField: 2
   <spells>k__BackingField:
   - {fileID: 11400000, guid: 2865a1391a9361342984c181d1548950, type: 2}
   - {fileID: 11400000, guid: 0f4e60c7bce06b3479faf77dc4139fbf, type: 2}
   - {fileID: 11400000, guid: 4d711ed980197a748b5e52b97d1537e0, type: 2}
+  - {fileID: 11400000, guid: 607e33997eaaef64c9f615d7326ae4ee, type: 2}

@@ -15,7 +15,8 @@ namespace DefaultNamespace
             if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
                 return;
             
-            playerPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[0].damages;
+            otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[0].damages;
+            playerPokimon.anim();
             m_turnManager.EndTurn();
         }
         
@@ -25,6 +26,7 @@ namespace DefaultNamespace
                 return;
             
             otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[1].damages;
+            playerPokimon.anim();
             m_turnManager.EndTurn();
         }
         
@@ -34,7 +36,47 @@ namespace DefaultNamespace
                 return;
             
             otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[2].damages;
+            playerPokimon.anim();
             m_turnManager.EndTurn();
+        }
+        
+        public void CallSpell1IA()
+        {       
+            if (m_turnManager.m_currentTurn != TurnManager.Turn.IA)
+                return;
+            
+            playerPokimon.runtimeData.hp -= otherPokimon.runtimeData.spells[0].damages;
+            otherPokimon.anim();
+            
+        }
+        
+        public void CallSpell2IA()
+        {
+            if (m_turnManager.m_currentTurn != TurnManager.Turn.IA)
+                return;
+            
+            playerPokimon.runtimeData.hp -= otherPokimon.runtimeData.spells[1].damages;
+            otherPokimon.anim();
+            
+        }
+        
+        public void CallSpell3IA()
+        {
+            if (m_turnManager.m_currentTurn != TurnManager.Turn.IA)
+                return;
+            
+            playerPokimon.runtimeData.hp -= otherPokimon.runtimeData.spells[2].damages;
+            otherPokimon.anim();
+            
+        }
+        
+        public void CallItemIA()
+        {
+            
+            
+            otherPokimon.runtimeData.hp += otherPokimon.runtimeData.spells[3].health;
+            
+            
         }
         
     }
