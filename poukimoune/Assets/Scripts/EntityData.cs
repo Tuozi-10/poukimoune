@@ -10,7 +10,7 @@ public class EntityData : ScriptableObject
         water,
         fire,
         grass,
-        insect,
+        ice,
         poison
     }
     

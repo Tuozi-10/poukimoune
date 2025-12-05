@@ -3,8 +3,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SpellData", menuName = "Scriptable Objects/SpellData")]
 public class SpellData : ScriptableObject
 {
-    [field:SerializeField]
-    public int damages { get; private set; }
+    public enum attackType
+    {
+        none,
+        water,
+        fire,
+        grass,
+        ice,
+        poison
+    }
+    
+    [field:SerializeField] public int damages { get; private set; }
+    [field:SerializeField] public attackType type{ get; private set; }
     
     public SpellDataWrapper GetRuntimeData()
     {
@@ -15,9 +25,11 @@ public class SpellData : ScriptableObject
 public class SpellDataWrapper
 {
     private int damages;
+    private SpellData.attackType type;
     
     public SpellDataWrapper(SpellData data)
     {
         damages = data.damages;
+        type = data.type;
     }
 }

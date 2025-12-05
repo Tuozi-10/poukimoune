@@ -28,12 +28,23 @@ namespace DefaultNamespace
          public void loseLife(int damage)
          {
              runtimeData.hp -= damage;
+             if (runtimeData.hp > 30)
+             {
+                 runtimeData.hp = 30;
+             }
              healthBar.fillAmount = (float)runtimeData.hp / runtimeData.hpToto;
              healthText.text = (runtimeData.hp).ToString() + "/" + (runtimeData.hpToto).ToString();
              if (runtimeData.hp <= 0)
              {
                  Time.timeScale = 0;
-                 MenuManager.instance.OpenDieScreen();
+                 if (gameObject.CompareTag("Player"))
+                 {
+                     MenuManager.instance.OpenDieScreen("player");
+                 }
+                 else
+                 {
+                     MenuManager.instance.OpenDieScreen("");
+                 }
              }
          }
          

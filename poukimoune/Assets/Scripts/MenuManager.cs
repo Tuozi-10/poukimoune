@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,10 +22,19 @@ public class MenuManager : MonoBehaviour
     }
     
     [SerializeField] private GameObject dieScreen;
+    [SerializeField] private TMP_Text dieMessage;
     
-    public void OpenDieScreen()
+    public void OpenDieScreen(string looser)
     {
         dieScreen.SetActive(true);
+        if (looser == "player")
+        {
+            dieMessage.text = "T MORT";
+        }
+        else
+        {
+            dieMessage.text = "Kameto le looser";
+        }
     }
     
     public void ReloadScene()
