@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a312e7f0b808a41a531a2aefe0475d, type: 3}
   m_Name: Soin
   m_EditorClassIdentifier: 
-  <damages>k__BackingField: -10
+  <damages>k__BackingField: -3

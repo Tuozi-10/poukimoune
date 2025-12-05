@@ -69,7 +69,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a1e50128bfe9f7649943a3df415fc7a1, type: 2}
+  m_Motion: {fileID: 7400000, guid: c28a40aeeb8e9f64280d7f1933600a31, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -81,7 +81,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tardmourv
+  m_Name: kanard
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

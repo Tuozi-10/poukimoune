@@ -16,6 +16,11 @@ namespace DefaultNamespace
                 return;
             
             playerPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[0].damages;
+            if (playerPokimon.runtimeData.hp > playerPokimon.runtimeData.hpToto)
+            {
+                playerPokimon.runtimeData.hp = playerPokimon.runtimeData.hpToto;
+            }
+            playerPokimon.AttackAnimation();
             m_turnManager.EndTurn();
         }
         
@@ -25,6 +30,7 @@ namespace DefaultNamespace
                 return;
             
             otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[1].damages;
+            playerPokimon.AttackAnimation();
             m_turnManager.EndTurn();
         }
         
@@ -34,6 +40,7 @@ namespace DefaultNamespace
                 return;
             
             otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[2].damages;
+            playerPokimon.AttackAnimation();
             m_turnManager.EndTurn();
         }
         

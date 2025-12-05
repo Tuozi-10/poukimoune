@@ -63,6 +63,5 @@ namespace DefaultNamespace
             DontDestroyOnLoad(this);
             currentState = GameState.Game;
         }
-        
     }
 }

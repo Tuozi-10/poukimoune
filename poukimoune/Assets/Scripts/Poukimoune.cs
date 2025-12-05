@@ -5,6 +5,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
+using Image = UnityEngine.UI.Image;
+
+
 
 namespace DefaultNamespace
 {
@@ -15,10 +18,15 @@ namespace DefaultNamespace
 
          [SerializeField]
          private SpriteRenderer m_tadMorvRenderer;
+
+         [SerializeField] private Image healthBar;
+
+         [SerializeField] private Animator anim;
          
-         private void Awake()
-         {
-             runtimeData = m_data.GetRuntimeData();
+
+          private void Awake()
+         { 
+            runtimeData = m_data.GetRuntimeData();
             var coroutine = StartCoroutine(SwapRandomColorEveryXSeconds());
          }
 
@@ -28,7 +36,7 @@ namespace DefaultNamespace
              {
                  GameManager.instance.currentState = GameManager.GameState.Menu;
              }
-             
+             UpdateUI();
          }
 
          public WaitForSeconds WaitForSeconds1 = new WaitForSeconds(1);
@@ -44,6 +52,17 @@ namespace DefaultNamespace
              
              StartCoroutine(SwapRandomColorEveryXSeconds());
          }
+
+         public void UpdateUI()
+         {
+             healthBar.fillAmount = (float)runtimeData.hp/runtimeData.hpToto;
+         }
+
+         public void AttackAnimation()
+         {
+             anim.Play("Attack");
+         }
+
 
     }
 }
