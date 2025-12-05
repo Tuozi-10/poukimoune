@@ -1,36 +1,42 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace DefaultNamespace
 {
     public class Poukimoune : MonoBehaviour
     {
-         [SerializeField]  private EntityData m_data;
+         [SerializeField] private EntityData m_data;
          public EntityDataWrapper runtimeData;
 
-         [SerializeField]
-         private SpriteRenderer m_tadMorvRenderer;
+         [SerializeField] private SpriteRenderer m_tadMorvRenderer;
+         [SerializeField] private Image healthBar; 
+         [SerializeField] private TMP_Text healthText; 
          
          private void Awake()
          {
              runtimeData = m_data.GetRuntimeData();
-            var coroutine = StartCoroutine(SwapRandomColorEveryXSeconds());
+             var coroutine = StartCoroutine(SwapRandomColorEveryXSeconds());
          }
-
-         private void Update()
+         
+         public void loseLife(int damage)
          {
-             if (Input.GetKeyDown(KeyCode.A))
+             runtimeData.hp -= damage;
+             healthBar.fillAmount = (float)runtimeData.hp / runtimeData.hpToto;
+             healthText.text = (runtimeData.hp).ToString() + "/" + (runtimeData.hpToto).ToString();
+             if (runtimeData.hp <= 0)
              {
-                 GameManager.instance.currentState = GameManager.GameState.Menu;
+                 Time.timeScale = 0;
+                 MenuManager.instance.OpenDieScreen();
              }
-             
          }
-
+         
          public WaitForSeconds WaitForSeconds1 = new WaitForSeconds(1);
          
          public IEnumerator SwapRandomColorEveryXSeconds()
