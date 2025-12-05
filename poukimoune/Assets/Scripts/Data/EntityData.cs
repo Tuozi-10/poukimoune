@@ -17,7 +17,6 @@ public class EntityData : ScriptableObject
     [field:SerializeField] public int hp { get; private set; }
     [field:SerializeField] public pokemonType type{ get; private set; }
     [field:SerializeField] public int attack { get; private set; }
-
     [field: SerializeField] public List<SpellData> spells { get; private set; }
     
     public EntityDataWrapper GetRuntimeData()

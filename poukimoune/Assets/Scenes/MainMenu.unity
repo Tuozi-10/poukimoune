@@ -912,6 +912,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5a010b699c403eb71564aa78e39f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allyHP: 30
+  enemyHP: 30
+  allyMaxHP: 30
+  enemyMaxHP: 30
 --- !u!4 &1441645734
 Transform:
   m_ObjectHideFlags: 0
