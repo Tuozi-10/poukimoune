@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969574060b121d346aa74a90cd35cc87, type: 3}
   m_Name: MonPokimoun
   m_EditorClassIdentifier: 
-  <hp>k__BackingField: 30
-  <type>k__BackingField: 3
+  <hp>k__BackingField: 20
+  <type>k__BackingField: 4
   <attack>k__BackingField: 3
   <spells>k__BackingField:
   - {fileID: 11400000, guid: 0f4e60c7bce06b3479faf77dc4139fbf, type: 2}

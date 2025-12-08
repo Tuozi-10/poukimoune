@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Charge
   m_EditorClassIdentifier: 
   <damages>k__BackingField: 3
+  <type>k__BackingField: 2

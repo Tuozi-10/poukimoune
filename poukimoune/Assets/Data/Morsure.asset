@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Morsure
   m_EditorClassIdentifier: 
   <damages>k__BackingField: 5
+  <type>k__BackingField: 4
