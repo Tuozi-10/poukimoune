@@ -16,6 +16,8 @@ namespace DefaultNamespace
                 return;
             
             playerPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[0].damages;
+            playerPokimon.playAttack();
+            Debug.Log("Tu as " + playerPokimon.runtimeData.hp + "PV");
             m_turnManager.EndTurn();
         }
         
@@ -24,7 +26,9 @@ namespace DefaultNamespace
             if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
                 return;
             
-            otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[1].damages;
+            otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[1].damages * playerPokimon.runtimeData.attack;
+            playerPokimon.playAttack();
+            Debug.Log("L'ennemi a " + otherPokimon.runtimeData.hp + "PV");
             m_turnManager.EndTurn();
         }
         
@@ -33,9 +37,22 @@ namespace DefaultNamespace
             if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
                 return;
             
-            otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[2].damages;
+            otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[2].damages * playerPokimon.runtimeData.attack;
+            playerPokimon.playAttack();
+            Debug.Log("L'ennemi a " + otherPokimon.runtimeData.hp + "PV");
             m_turnManager.EndTurn();
         }
         
+        public void CallSpell4()
+        {
+            if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
+                return;
+
+            playerPokimon.runtimeData.attack += 3;
+            playerPokimon.isBuffed += 1;
+            playerPokimon.playAttack();
+            Debug.Log("L'ennemi a " + otherPokimon.runtimeData.hp + "PV");
+            m_turnManager.EndTurn();
+        }
     }
 }

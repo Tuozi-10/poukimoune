@@ -24,7 +24,8 @@ namespace DefaultNamespace
         public enum GameState
         {
             Menu,
-            Game
+            Game 
+        
         }
 
         private GameState m_currentState = GameState.Menu;
