@@ -59,18 +59,21 @@ namespace DefaultNamespace
 
         public void DetermineIAAction()
         {
+            // ton check sur le gameOver est duppliqué, n'hésite pas à DRY, tu pourrais ne l'appeller qu'une fois à la fin
             int action = Random.Range(0, 4);
+            // pense aussi à retirer les debug.log quand tu as finis de les utiliser, ca coute cher en perf
+            // c'est dommage pour le random sur les actions, si tu avais seulement mis
+            // if ( playerPokimon.runtimeData.hp > otherPokimon.runtimeData.hp )
+            // else if (playerPokimon.runtimeData.hp < otherPokimon.runtimeData.hp)
+            // tu aurais déja eu un bon bout de logique d'ia en plus
+            
             switch (action)
             {
                 case 1:
                     playerPokimon.runtimeData.hp -= otherPokimon.runtimeData.spells[0].damages;
                     Debug.Log("IA joue "+otherPokimon.runtimeData.spells[0]);
                     playerPokimon.PlayAttack();
-                    if (GameOver())
-                    {
-                        Time.timeScale = 0;
-                        gameOverMenu.SetActive(true);
-                    }
+          
                     break;
                 case 2:
                     if (otherPokimon.runtimeData.hp - otherPokimon.runtimeData.spells[1].damages >
@@ -85,22 +88,20 @@ namespace DefaultNamespace
 
                     Debug.Log("IA joue "+otherPokimon.runtimeData.spells[1]);
                     playerPokimon.PlayAttack();
-                    if (GameOver())
-                    {
-                        Time.timeScale = 0;
-                        gameOverMenu.SetActive(true);
-                    }
+               
                     break;
                 case 3:
                     playerPokimon.runtimeData.hp -= otherPokimon.runtimeData.spells[2].damages;
                     Debug.Log("IA joue "+otherPokimon.runtimeData.spells[2]);
                     playerPokimon.PlayAttack();
-                    if (GameOver())
-                    {
-                        Time.timeScale = 0;
-                        gameOverMenu.SetActive(true);
-                    }
+          
                     break;
+            }
+            
+            if (GameOver())
+            {
+                Time.timeScale = 0;
+                gameOverMenu.SetActive(true);
             }
         }
         
@@ -124,6 +125,7 @@ namespace DefaultNamespace
                 Debug.Log("perdu");
                 return true;
             }
+            // pas besoin du else ( juste le mot clef ), si tu rentres dans le if, le return te fera quitter la fonction
             else if (playerPokimon.runtimeData.hp <= 0)
             {
                 Debug.Log("Gagné");
