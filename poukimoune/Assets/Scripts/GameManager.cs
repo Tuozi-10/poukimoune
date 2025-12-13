@@ -45,6 +45,7 @@ namespace DefaultNamespace
 
         private void Awake()
         {
+            // c'est dommage de le passer en dont destroy si derriere tu le détruis, tu pourrais faire que ca le bricole que si tu le détruit pas pour éviter des traitements inutiles
             DontDestroyOnLoad(this);
             if (instance != null) Destroy(this);
             else instance = this;

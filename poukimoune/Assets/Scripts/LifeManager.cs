@@ -27,6 +27,9 @@ public class LifeManager : MonoBehaviour
     
     public int incrementHP(int incr_amount, int hp, int maxHp)
     {
+        // ca marche pas ca chef, si t'as 20/20 pv, si t'ajoutes 3, il va te mettre à 20, puis le hp += à la fin va te faire dépasser
+        // faudrait faire hp = Math.Clamp(hp + incr_amount, 0, maxHp);
+        
         if (hp + incr_amount > maxHp)
         {
             hp = maxHp;
