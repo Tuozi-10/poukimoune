@@ -25,9 +25,11 @@ namespace DefaultNamespace
              var coroutine = StartCoroutine(SwapRandomColorEveryXSeconds());
          }
          
+         // attention au naming, les autres fonctions utilisent une majuscule au début
          public void loseLife(int damage)
          {
              runtimeData.hp -= damage;
+             // pas ouf ca, vaudrait mieux checker le maxHp, là tous tes mobs ont le meme max de pv
              if (runtimeData.hp > 30)
              {
                  runtimeData.hp = 30;

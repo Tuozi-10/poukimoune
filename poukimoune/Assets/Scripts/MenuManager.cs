@@ -21,9 +21,11 @@ public class MenuManager : MonoBehaviour
         dieScreen.SetActive(false);
     }
     
+    // de maniere générale, place tes serializefield en tout début de classe, ca t'évitera de les manquer 
     [SerializeField] private GameObject dieScreen;
     [SerializeField] private TMP_Text dieMessage;
     
+    // pourquoi passer par un string? la comparaison de string est couteuse, tu pourrais opti un peu en passant un petit bool "bool isPlayer"
     public void OpenDieScreen(string looser)
     {
         dieScreen.SetActive(true);

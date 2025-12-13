@@ -74,7 +74,13 @@ namespace DefaultNamespace
             if (player.runtimeData.hp < 5 && iaLastSpell!=1)
             {
                 multiplier = 1f;
-                if (player.runtimeData.type.ToString() == "grass")
+                // Doux jésus
+                // BON, premier point, tu as hardcodé le type des dégats du mob, c'est dommage, et si t'as 2000 spells j'te laisse imaginer l'histoire
+                // Deuxieme point, tu peux utiliser directement l'enum en tant que type, pas besoin de le passer en string
+                // Troisieme point, t'as une tonne de dupplicata
+                // Je te met une petite fonction utilitaire sympa juste dessous pour t'inspirer pour améliorer l'algo
+                
+                if (player.runtimeData.type == EntityData.pokemonType.grass)
                 {
                     print("caca");
                     multiplier = 1.4f;
@@ -213,6 +219,40 @@ namespace DefaultNamespace
                 }
             }
             EndTurn();
+        }
+
+
+        private const float defaultMultiplier = 1f;
+        private const float bonusMultiplier = 1.4f;
+        private const float malusMultiplier = 1.6f;
+        
+        private float GetDamageMultiplier(EntityData.pokemonType from, EntityData.pokemonType to)
+        {
+            switch (from)
+            {
+                case EntityData.pokemonType.water:
+                    return to switch
+                    {
+                        EntityData.pokemonType.fire => bonusMultiplier,
+                        EntityData.pokemonType.grass => malusMultiplier,
+                        _ => defaultMultiplier
+                    };
+                case EntityData.pokemonType.fire:
+                    return to switch
+                    {
+                        EntityData.pokemonType.fire or EntityData.pokemonType.water => malusMultiplier,
+                        EntityData.pokemonType.grass or EntityData.pokemonType.ice => bonusMultiplier,
+                        _ => defaultMultiplier
+                    };
+                case EntityData.pokemonType.grass: // etc
+                    break;
+                case EntityData.pokemonType.ice: //etc
+                    break;
+                case EntityData.pokemonType.poison: //etc
+                    break;
+            }
+            
+            return defaultMultiplier;
         }
         
         public void SetIADisplay()
