@@ -64,6 +64,8 @@ namespace DefaultNamespace
         public void UpdateLife()
         {
             var newLife = (float)runtimeData.hp / runtimeData.hpToto;
+            
+            // attention aux get component, c'est couteux, il vaut mieux que tu le stock au awake et réutilise
             lifeBar.GetComponent<Image>().fillAmount = newLife;
         }
         

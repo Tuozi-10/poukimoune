@@ -13,6 +13,7 @@ namespace DefaultNamespace
         
         [SerializeField] private TurnManager m_turnManager;
 
+        // Pas giga claire 1 et 2, c'est dans le cas oû tu gagnes/ perd ? Y'a ptet mieux à faire niveau naming
         [SerializeField] private GameObject textGameOver1;
         [SerializeField] private GameObject textGameOver2;
         
@@ -25,65 +26,32 @@ namespace DefaultNamespace
         }
 
         //
-        
-        public void CallSpellPlayer1()
-        {   
-            
+
+        private void CallSpellPlayer(int spellId, Poukimoune from, Poukimoune to)
+        {
             if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
                 return;
             
-            playerPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[0].damages;
-            CheckNewLife(playerPokimon);
-            playerPokimon.PlayAttack();
-            playerPokimon.UpdateLife();
+            to.runtimeData.hp -= from.runtimeData.spells[spellId].damages;
+            CheckNewLife(to);
+            from.PlayAttack();
+            to.UpdateLife();
    
             m_turnManager.EndTurn();
         }
         
-        //
+        // tu peux pas mal simplifier ton code en faisant un peu de DRY, tu as beaucoup de code duppliqué
         
-        public void CallSpellPlayer2()
-        {
-            if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
-                return;
-            
-            otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[1].damages;
-            CheckNewLife(otherPokimon);
-            playerPokimon.PlayAttack();
-            otherPokimon.UpdateLife();
-
-            m_turnManager.EndTurn();
-        }
+        public void CallSpellPlayer1() => CallSpellPlayer(0, playerPokimon, playerPokimon);
         
-        //
+        public void CallSpellPlayer2() => CallSpellPlayer(1, playerPokimon, otherPokimon);
         
-        public void CallSpellPlayer3()
-        {
-            if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
-                return;
-            
-            otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[2].damages;
-            CheckNewLife(otherPokimon);
-            playerPokimon.PlayAttack();
-            otherPokimon.UpdateLife();
-
-            m_turnManager.EndTurn();
-        }
+        public void CallSpellPlayer3() => CallSpellPlayer(2, playerPokimon, otherPokimon);
         
-        public void CallSpellPlayer4()
-        {
-            if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
-                return;
-            
-            otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[3].damages;
-            CheckNewLife(otherPokimon);
-            playerPokimon.PlayAttack();
-            otherPokimon.UpdateLife();
-
-            m_turnManager.EndTurn();
-        }
+        public void CallSpellPlayer4() => CallSpellPlayer(3, playerPokimon, otherPokimon);
         
-        //
+        
+        // pareil ici, tu peux appliquer la memelogique qu'au dessus
         
         public void CallSpellEnemy1()
         {   
