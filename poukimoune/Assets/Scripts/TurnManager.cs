@@ -54,6 +54,7 @@ namespace DefaultNamespace
         
         public void DetermineIAAction()
         {
+            // attention aux magic numbers ( des petits consts, serializefield, etc c'est plus propre / lisible / ... )
             int a = Random.Range(0, 10);
             if (a < 5)
             {

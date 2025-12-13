@@ -64,6 +64,8 @@ namespace DefaultNamespace
 
         public void Update()
         {
+            // j'te conseille au maximum d'éviter les checks que tu peux faire de maniere evenementielle dans un update,
+            // tu pourrais ne l'avoir que quand tu modifies les PV, plutot qu'à chaque frame
             if (playerPokimon.runtimeData.hp <= 0 || otherPokimon.runtimeData.hp <= 0)
             {
                 EndMenu.SetActive(true);

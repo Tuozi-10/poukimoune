@@ -10,6 +10,10 @@ namespace DefaultNamespace
         [SerializeField] private TurnManager m_turnManager;
         [SerializeField] private GameObject LifeBarImage;
         [SerializeField] private GameObject LifeBarImageIA;
+        
+        // tu peux DRY tout ca, une tonne du code est duppliqué, j't'encourage à aller voir l'exemple sur
+        // la review de Maxence, j'ai fait un petit DRY tout pimpant, il s'applique parfaitement pour toi aussi ici
+        
         public void CallSpell1()
         {
             if (m_turnManager.m_currentTurn != TurnManager.Turn.IA)
