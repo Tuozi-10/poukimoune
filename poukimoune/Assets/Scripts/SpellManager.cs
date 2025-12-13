@@ -10,6 +10,8 @@ namespace DefaultNamespace
         
         [SerializeField] private TurnManager m_turnManager;
         
+        // je t'invite à t'inspirer de la review chez Maxence pour DRY (Dont repeat yourself) ces fonctions
+        
         public void CallSpell1()
         {       
             if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
