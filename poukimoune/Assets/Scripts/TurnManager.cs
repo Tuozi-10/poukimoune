@@ -70,6 +70,7 @@ namespace DefaultNamespace
         {
             int decision = Random.Range(0, 10);
 
+            // attention à tes valeurs hardcodées, hésite pas à utiliser des scriptable, faire des consts, etc
 
             if (otherPokimon.runtimeData.hp < 5 && playerPokimon.runtimeData.hp < 5) 
             {
@@ -97,6 +98,8 @@ namespace DefaultNamespace
                     
             
         }
+        
+        // ta fonction waitforturn, elle fait tout SAUF attendre pour le turn chef
         
         private IEnumerator WaitForTurn()
         {

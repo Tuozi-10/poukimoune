@@ -10,6 +10,8 @@ namespace DefaultNamespace
         
         [SerializeField] private TurnManager m_turnManager;
         
+        // hésite pas à t'inspirer de la review sur Maxence pour DRY tes callSpell
+        
         public void CallSpell1()
         {       
             if (m_turnManager.m_currentTurn != TurnManager.Turn.player)
@@ -39,6 +41,7 @@ namespace DefaultNamespace
             
             otherPokimon.runtimeData.hp -= playerPokimon.runtimeData.spells[2].damages * playerPokimon.runtimeData.attack;
             playerPokimon.playAttack();
+            // gaffe aux debug logs, ca coute cher en perf, faut les retirer quand tu t'en sers plus
             Debug.Log("L'ennemi a " + otherPokimon.runtimeData.hp + "PV");
             m_turnManager.EndTurn();
         }
