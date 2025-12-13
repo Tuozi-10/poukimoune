@@ -70,6 +70,10 @@ namespace DefaultNamespace
 
         public void DetermineIAAction()
         {
+            // le probleme avec les PVs en dur comme ca, c'est que si jamais tu t'amuses à modifier les pvs de ton
+            // entité, genre elle passe de 20 pv à 200, bah ca marche plus
+            // c'est pas incroyable niveau évolutivité, hésite pas à mettre ces datas dans
+            // des const, serializefield, scriptable pour les rendre éditables + facilement
             if (EnemyPokimon.runtimeData.hp < 5) //si IA moins de 5pv
             {
                 if (playerPokimon.runtimeData.hp < 5) // si joueur mois de 5 pv --> attaque
@@ -87,8 +91,8 @@ namespace DefaultNamespace
             }
             else 
             {
-                int n = Random.Range(0, 3);
-                if (n == 1)
+                // tu peux meme encore plus raccourcir ( et hésite paas à utiliser des const, là c'est magic number et compagnie
+                if (Random.Range(0,3) == 1)
                 {
                     EnemyPokimon.runtimeData.hp -= EnemyPokimon.runtimeData.spells[n].damages;
                 }
@@ -107,6 +111,8 @@ namespace DefaultNamespace
             // désactive boutons
         }
 
+        // pas terrible le nom de la fonction, essaie d'etre le plus explicite possible quand tu nommes une
+        // fonction pour que ca soit plus simple à maintenir et suivre ta logique
         private void Check()
         {
             if (playerPokimon.runtimeData.hp < 0)
@@ -125,6 +131,7 @@ namespace DefaultNamespace
 
         private void Stop()
         {
+            // pense à bien retirer les debug log quand tu as fini de les utiliser, ca consomme pas mal en perf
             Debug.Log("2");
             bouton1.interactable = false;
             bouton2.interactable = false;
